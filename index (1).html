@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CineLivros — Início</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-page="index">
+  <div class="app">
+    <header>
+      <div class="brand">
+        <img src="assets/logo.png" alt="Logo CineLivros" onerror="this.style.display='none'">
+        <h1>CineLivros</h1>
+      </div>
+      <div class="header-actions">
+        <div class="search"><input id="globalSearch" placeholder="Pesquisar no CineLivros..." onkeydown="if(event.key==='Enter'){const q=this.value.toLowerCase(); if(q.includes('produto')) location.href='produtos.html'; else if(q.includes('assistir')) location.href='onde-assistir.html'; else if(q.includes('forum')) location.href='forum.html'; else if(q.includes('biblioteca')||q.includes('livro')) location.href='biblioteca.html'; else location.href='noticias.html'}"></div>
+        <div>👤</div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <nav class="sidebar">
+        <div class="logo-mini"><img src="assets/logo.png" alt="logo" style="width:36px;height:36px;object-fit:contain"><strong style="color:var(--yellow)">CineLivros</strong></div>
+        <a href="index.html" data-page="index">Página Inicial</a>
+        <a href="onde-assistir.html" data-page="onde">Onde Assistir</a>
+        <a href="produtos.html" data-page="produtos">Produtos</a>
+        <a href="forum.html" data-page="forum">Fórum</a>
+        <a href="biblioteca.html" data-page="biblioteca">Biblioteca</a>
+        <a href="noticias.html" data-page="noticias">Notícias</a>
+        <a href="compra.html" data-page="checkout">Finalizar Compra</a>
+      </nav>
+
+      <main class="content">
+        <section id="inicio" class="page active">
+          <h2 class="page-title">Bem-vindo ao CineLivros</h2>
+          <div class="intro">O CineLivros reúne informações sobre filmes, séries, animes e livros: onde assistir, produtos, fórum de discussão e notícias — tudo em um só lugar.</div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px">
+            <div class="card" style="min-width:220px">
+              <h3>Explorar Onde Assistir</h3>
+              <p>Descubra plataformas onde os títulos estão disponíveis e compare preços.</p>
+              <div style="margin-top:8px"><button class="btn" onclick="location.href='onde-assistir.html'">Ir para Onde Assistir</button></div>
+            </div>
+
+            <div class="card" style="min-width:220px">
+              <h3>Visitar a Loja</h3>
+              <p>Livros, filmes e colecionáveis. Clique em comprar para simular uma compra.</p>
+              <div style="margin-top:8px"><button class="btn" onclick="location.href='produtos.html'">Ver Produtos</button></div>
+            </div>
+
+            <div class="card" style="min-width:220px">
+              <h3>Entrar no Fórum</h3>
+              <p>Converse com outros fãs, participe de comunidades e debates.</p>
+              <div style="margin-top:8px"><button class="btn" onclick="location.href='forum.html'">Ir ao Fórum</button></div>
+            </div>
+          </div>
+
+          <h3 style="margin-bottom:8px">Destaques</h3>
+          <div class="cards">
+            <div class="card"><img src="assets/thumb1.png" alt=""><h3>Estreia da Semana</h3><p>Crítica e destaque do filme que estreou essa semana.</p></div>
+            <div class="card"><img src="assets/thumb2.png" alt=""><h3>Clássicos em Foco</h3><p>Listas de filmes e livros que marcaram época.</p></div>
+            <div class="card"><img src="assets/thumb3.png" alt=""><h3>Comunidades Ativas</h3><p>Debates sobre adaptações literárias e muito mais.</p></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>© 2025 CineLivros. Imagens e conteúdos são de propriedade de seus respectivos detentores de direitos autorais.</footer>
+  </div>
+</body>
+</html>
