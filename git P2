@@ -2,12 +2,12 @@ import random
 
 def escolher_dificuldade():
     print("\nEscolha o nível de dificuldade: ")
-    print("1 -  Fácil (1 a 30 | 10 tentativas | até 10 pontos)")
+    print("1 - Fácil (1 a 30 | 10 tentativas | até 10 pontos)")
     print("2 - Médio (1 a 50 | 7 tentativas | até 20 pontos)")
     print("3 - Difícil (1 a 100 | 5 tentativas | até 30 pontos)")
 
     while True:
-        opcao = input("Digite 1, 2 ou 3:")
+        opcao = input("Digite 1, 2 ou 3: ")
 
         if opcao == "1":
             return 30, 10, 10
@@ -19,8 +19,7 @@ def escolher_dificuldade():
             print("Opção inválida! Tente novamente.")
 
 def jogar(pontuacao_total):
-
-    print("=" * 40)
+    print("\n" + "=" * 40)
     print(" Jogo da Adivinhação")
     print("=" * 40)
 
@@ -30,46 +29,56 @@ def jogar(pontuacao_total):
     tentativas = 0
     palpite = None 
 
-    print("Estou pensando em um número entre 1 e {limite}.")
+    # Adicionado o 'f' antes da string para a variável aparecer
+    print(f"\nEstou pensando em um número entre 1 e {limite}.")
     print(f"Você tem {max_tentativas} tentativas.\n")
 
     while tentativas < max_tentativas:
         try:
-            palpite = int(input("digite seu palpite: "))
+            palpite = int(input("Digite seu palpite: "))
         except ValueError:
-            print("Digite apenas numeros inteiros!!\n")
+            print("Digite apenas números inteiros!!\n")
             continue
 
         tentativas += 1
 
         if palpite == numero_secreto:
             pontos_ganhos = pontos_maximos - (tentativas - 1)
-            if pontos_ganhos <1:
+            if pontos_ganhos < 1:
                 pontos_ganhos = 1
 
-            print(f"\n Parabéns!!! Você acertou em {tentativas} tentativa(s)!")
-            print(f" você ganhou {pontos_ganhos} ponto(s)!")
+            print(f"\nParabéns!!! Você acertou em {tentativas} tentativa(s)!")
+            print(f"Você ganhou {pontos_ganhos} ponto(s)!")
             pontuacao_total += pontos_ganhos
             break
 
         elif palpite > numero_secreto:
-            print("O numero secreto é menor.\n")
+            print("O número secreto é menor.\n")
         else:
-            print("O numerosegreto é maior.\n")
+            print("O número secreto é maior.\n")
 
         print(f"Tentativas restantes: {max_tentativas - tentativas}\n")
           
     if palpite != numero_secreto:
-        print(f"\n você perdeu! o numero era {numero_secreto}.")
+        print(f"\nVocê perdeu! O número era {numero_secreto}.")
 
-    print(f"\n pontuação total acumulada: {pontuacao_total}")
+    print(f"\nPontuação total acumulada: {pontuacao_total}")
     print("=" * 40)
 
     return pontuacao_total
 
 if __name__ == "__main__":
-
     pontuacao_total = 0
+    
+    # Este é o loop principal que permite jogar várias vezes
+    while True:
+        pontuacao_total = jogar(pontuacao_total)
+        
+        continuar = input("\nDeseja jogar novamente? (s/n): ").lower()
+        if continuar != 's':
+            print(f"\nObrigado por jogar! Sua pontuação final foi: {pontuacao_total}")
+            print("Até a próxima!")
+            break
 
     while True:
         pontuacao_total = jogar(pontuacao_total)
